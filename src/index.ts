@@ -1,12 +1,14 @@
 import  express from "express";
+import cors from 'cors'
 import { productModel } from "./db";
 import mongoose, { mongo } from "mongoose";
 
 const app = express();
+app.use(cors())
 
 app.get("/products", async (req, res) => {
   const page:number = parseInt(req.query.page as string) || 1;
-  const limit:number = parseInt(req.query.limit as string) || 10;
+  const limit:number = parseInt(req.query.limit as string) || 5;
 
   const skip = (page - 1) * limit;
 

@@ -13,12 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const db_1 = require("./db");
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.get("/products", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const skip = (page - 1) * limit;
     try {
         const products = yield db_1.productModel.find().skip(skip).limit(limit);
