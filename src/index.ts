@@ -10,7 +10,7 @@ app.get("/products", async (req, res) => {
   const page:number = parseInt(req.query.page as string) || 1; 
   const limit:number = parseInt(req.query.limit as string) || 5; // content per page
 
-  const skip = (page - 1) * limit; 
+  const skip = (page - 1) * limit;  // data to skip 
 
   try {
     const products = await productModel.find().skip(skip).limit(limit);
