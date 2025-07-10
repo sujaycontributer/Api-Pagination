@@ -19,7 +19,7 @@ app.get("/products", async (req, res) => {
     res.json({
       total,
       page,
-      totalPages: Math.ceil(total / limit),
+      totalPages: Math.ceil(total / limit), // total pages based on db data
       data: products
     });
   } catch (err:any) {
