@@ -28,7 +28,7 @@ app.get("/products", async (req, res) => {
 });
 
 async function Start () {
-    await mongoose.connect("mongodb://localhost:27017/Pagination");
+    await mongoose.connect("mongodb://localhost:27017/Pagination"); // DB name Pagination
     app.listen(5000, () => {
         console.log("Server is runnin on port 5000");
     });
