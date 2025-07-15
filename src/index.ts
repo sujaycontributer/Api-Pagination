@@ -13,7 +13,7 @@ app.get("/products", async (req, res) => {
   const skip = (page - 1) * limit;  // data to skip 
 
   try {
-    const products = await productModel.find().skip(skip).limit(limit);
+    const products = await productModel.find().skip(skip).limit(limit); // skip the first number of skip and get the total data of limit
     const total = await productModel.countDocuments();
 
     res.json({
