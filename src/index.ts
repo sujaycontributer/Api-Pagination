@@ -6,6 +6,7 @@ import mongoose, { mongo } from "mongoose";
 const app = express();
 app.use(cors())
 
+// ---------------------------Pagination from backend-----------------------
 app.get("/products", async (req, res) => {
   const page:number = parseInt(req.query.page as string) || 1; // get the page number from the frontend
   const limit:number = parseInt(req.query.limit as string) || 5; // content per page
