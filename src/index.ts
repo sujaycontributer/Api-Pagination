@@ -4,7 +4,7 @@ import { productModel } from "./db";
 import mongoose, { mongo } from "mongoose";
 
 const app = express();
-app.use(cors())
+app.use(cors()) // can acces via all domain
 
 // ---------------------------Pagination from backend-----------------------
 app.get("/products", async (req, res) => {
